@@ -7,12 +7,12 @@ An end effector is the device at the end of a robotic arm, designed to interact 
 ## Getting started
 
 * Ensure dynamixel motors have the proper power supply & both servos have a different ID (you can change them by using a [GUI tool](http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/#gui)
-  - Download & place this package in your_catkin_workspace/src
-  - Run the following commands in your terminal/command line:
-    ```
-    catkin_make
-    roslaunch dynamixel_gripper gripper_manager.roslaunch
-    ```
+* Download & place this package in your_catkin_workspace/src
+* Run the following commands in your terminal/command line:
+```
+catkin_make
+roslaunch dynamixel_gripper gripper_manager.roslaunch
+```
 
 ## ROS API
 

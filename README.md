@@ -1,12 +1,6 @@
-# Dynamixel Gripper
-# Purpose
-
-
-.. Copyright 2018 pohyk123
-
-============================
-Cartographer ROS Integration
-============================
+=======================
+Dynamixel Servo Gripper
+=======================
 
 Purpose
 =======

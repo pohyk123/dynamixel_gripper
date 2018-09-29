@@ -6,7 +6,7 @@ An end effector is the device at the end of a robotic arm, designed to interact 
 
 ## Getting started
 
-* Ensure dynamixel motors have the proper power supply & both servos have a different ID (you can change them by using a [GUI tool](http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/#gui)
+* Ensure dynamixel motors have the proper power supply & both servos have a different ID (you can change them by using a [GUI tool](https://www.trossenrobotics.com/shared/images/PImages/R-903-0188-000-c.jpg)
 * Ensure you have download the packages for dynamixel_controllers; you can do it by running the command:
 ```
 sudo apt-get install ros-kinetic-dynamixel-controllers

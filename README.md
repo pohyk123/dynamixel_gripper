@@ -2,7 +2,7 @@
 
 ## Purpose
 
-An end effector is the device at the end of a robotic arm, designed to interact with the environment. To provide for a low cost gripper solution for the underlying project, 2 [dynamixel motors](http://www.robotis.us/dynamixel-ax-18a/) with claws affixed are attached alongside each other. This library (**built & tested with kinetic**) provides a easy-to-use ROS package to control the grip.
+An end effector is the device at the end of a robotic arm, designed to interact with the environment. To provide for a low cost gripper solution for the underlying project, 2 [dynamixel motors](http://www.robotis.us/dynamixel-ax-18a/) with claws affixed are attached alongside each other. This library (**built & tested with kinetic**) provides an easy-to-use ROS package to control the grip.
 
 ## Getting started
 

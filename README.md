@@ -16,6 +16,9 @@ sudo apt-get install ros-kinetic-dynamixel-controllers
 ```
 catkin_make
 roslaunch dynamixel_gripper gripper_manager.roslaunch
+roscd dynamixel_gripper/scripts
+chmod +x getLoad.py
+chmod +x GripperOpenClose.py
 ```
 
 ## ROS API

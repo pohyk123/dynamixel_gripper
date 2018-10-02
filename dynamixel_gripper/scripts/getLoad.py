@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 # license removed for brevity
+# This script gets the current load in each servo and publishes the average load as a rostopic
+# Created by Poh Yong Keat 2018
+
 import rospy
 from std_msgs.msg import Float64
 from dynamixel_msgs.msg import MotorStateList
 from dynamixel_gripper.msg import load_state
 
+# initialise variables
 global load_left
 global load_right
 global load
@@ -13,6 +17,7 @@ load_left = 0
 load_right = 0
 load = 0
 
+# Callback function
 def callback(data):
     global load
     global load_left
@@ -24,17 +29,24 @@ def callback(data):
         if(motor.id==2):
             load_right=motor.load
 
+    # Find average load
     load = (load_left+load_right)/2
 
     rospy.loginfo("\nLeft load value: %f\nRight load value: %f\nAverage load value: %f\n-" % (load_left,load_right,load))
 
+# main function
 def getLoadValue():
+
+    # Initialise variable(s)
+    loadState = load_state()
     rospy.init_node('GripperLoadValue', anonymous=True)
+
+    # Node subscribes to motor state and publishes load data
     pub = rospy.Publisher('/gripper/load', load_state, queue_size=10)
     rospy.Subscriber('/motor_states/pan_tilt_port', MotorStateList, callback)
-    rate = rospy.Rate(1) # 10hz
 
-    loadState = load_state()
+    # Node refresh rate
+    rate = rospy.Rate(1) # 1hz
 
     while not rospy.is_shutdown():
         global load
@@ -45,7 +57,7 @@ def getLoadValue():
         loadState.load_right = load_right
         loadState.avg_load = load
 
-        # rospy.loginfo(hello_str)
+        # publish load data to rostopic
         pub.publish(loadState)
         rate.sleep()
 

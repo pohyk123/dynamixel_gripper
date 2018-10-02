@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # license removed for brevity
-
 # This scripts runs a node that opens and closes the dyanmixel gripper via ros topics
+# Created by Poh Yong Keat 2018
 
 import rospy
 from std_msgs.msg import Float64, Int32
@@ -60,7 +60,6 @@ def open_and_close():
 
     # Initialise variable(s)
     msg = grip_state()
-
     rospy.init_node('GripperOpenClose', anonymous=True)
 
     # 3 publishers - 2 for controlling each servo, 1 for updating gripper status

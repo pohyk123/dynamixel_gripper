@@ -10,6 +10,8 @@ LGrip_controller:
         init: 0
         min: 0
         max: 4096
+        open_angle: 2.2355
+        close_angle: 3.1717
 
 RGrip_controller:
     controller:
@@ -23,3 +25,5 @@ RGrip_controller:
         init: 0
         min: 0
         max: 4096
+        open_angle: 3.8009
+        close_angle: 2.7164

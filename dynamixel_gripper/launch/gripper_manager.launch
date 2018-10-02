@@ -25,7 +25,9 @@
           output="screen"/>
 
     <!-- Start grip controller -->
-    <node name="gripper_controller" pkg="dynamixel_gripper" type="GripperOpenClose.py"/>
+    <node name="gripper_controller" pkg="dynamixel_gripper" type="GripperOpenClose.py"
+          args="LGrip_controller
+                RGrip_controller"/>
 
     <!-- Start gripper load tracker -->
     <!-- Wrapper for dynamixel motor load -->

@@ -14,10 +14,16 @@ global LGrip_close_angle
 global RGrip_open_angle
 global RGrip_close_angle
 
-RGrip_open_angle = 3.15
-RGrip_close_angle = 2.75
-LGrip_close_angle = 2.50
-LGrip_open_angle = 2.10
+# RGrip_open_angle = 3.8009
+# RGrip_close_angle = 2.7164
+# LGrip_close_angle = 3.1717
+# LGrip_open_angle = 2.2355
+
+RGrip_open_angle = rospy.get_param("/RGrip_controller/motor/open_angle")
+RGrip_close_angle = rospy.get_param("/RGrip_controller/motor/close_angle")
+LGrip_close_angle = rospy.get_param("/LGrip_controller/motor/close_angle")
+LGrip_open_angle = rospy.get_param("/LGrip_controller/motor/open_angle")
+
 step_release_angle = 0.000174
 
 # initialise variables
@@ -27,9 +33,11 @@ global feedback_load
 global feedback_load_max
 global present_angle
 global user_command
+global servo_temp
 
 gripper_state = 0
 feedback_load = 0
+servo_temp = 0
 feedback_load_max = 0.3
 user_command = True
 present_angle = [0,0]
@@ -45,11 +53,14 @@ def callback(data):
 def callback_state(data):
     global feedback_load
     global present_angle
+    global servo_temp
     feedback_load = 0
+    servo_temp = 0
     data = data.motor_states
     if(len(data)==1): rospy.loginfo("Only 1 motor detected!")
     for i in range(len(data)):
-        feedback_load = (feedback_load + data[i].load)/(i+1)
+        feedback_load = (feedback_load + abs(data[i].load))/(i+1)
+        servo_temp = (servo_temp + data[i].temperature)/(i+1)
         # Map position from (0,1023) to (0,5.233), 5.233 is the maximum joint angle (300 deg)
         present_angle[i] = (data[i].position) * (5.2333/1023)
 
@@ -120,6 +131,7 @@ def open_and_close():
         msg.left_pos = present_angle[0]
         msg.right_pos = present_angle[1]
         msg.avg_load = feedback_load
+        msg.avg_temp = servo_temp
         pub_state.publish(msg)
 
         rate.sleep()

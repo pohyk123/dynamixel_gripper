@@ -30,7 +30,7 @@ def callback(data):
             load_right=motor.load
 
     # Find average load
-    load = (load_left+load_right)/2
+    load = (abs(load_left)+abs(load_right))/2
 
     rospy.loginfo("\nLeft load value: %f\nRight load value: %f\nAverage load value: %f\n-" % (load_left,load_right,load))
 

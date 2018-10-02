@@ -37,5 +37,5 @@ roslaunch dynamixel_gripper gripper_manager.roslaunch
   - 0 - open, 1 - close
 
 ## Important points
-* Gripper may get hot after prolonged use. Keep track and ensure its **temperature does not exceed 65 degrees celsius**. To check temperature, check published topic **/gripper/state**
+* Gripper may get hot after prolonged use. Keep track and ensure its **temperature does not exceed 65 degrees celsius**. To track temperature, check published topic **/gripper/state**
 * Certain parameters can be adjusted in 'tilt.yaml' & 'gripper_manager.launch' files, such as _port number, servo id search range, baudrate, joint velocity, open & close angles_

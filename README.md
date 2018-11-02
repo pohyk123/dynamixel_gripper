@@ -1,4 +1,4 @@
-  # Dynamixel Servo Gripper
+# Dynamixel Servo Gripper
 
 ## Purpose
 
@@ -28,16 +28,17 @@ roslaunch dynamixel_gripper gripper_manager.roslaunch
 ## ROS API
 
 **Published Topics**
-* /gripper/load (dynamixel_gripper/load_state)
+* /gripper/load (msg type: dynamixel_gripper/load_state)
   - Returns the current load in both servos
-* /gripper/state (dynamixel_gripper/grip_state)
+* /gripper/state (msg type: dynamixel_gripper/grip_state)
   - Returns 0 if gripper is open, and 1 if gripper is closed; contains other motor info as well
 
 **Subscribed Topics**
-* /gripper/command (dynamixel_gripper, std_msgs/Int32)
+* /gripper/command (msg type: std_msgs/Int32)
   - 0 - open, 1 - close
 
 ## Important points
 * Gripper may get hot after prolonged use. Keep track and ensure its **temperature does not exceed 65 degrees celsius**. To track temperature, check published topic **/gripper/state**
 * Certain parameters can be adjusted in 'tilt.yaml' & 'gripper_manager.launch' files, such as _port number, servo id search range, baudrate, joint velocity, open & close angles_
 * Ensure the dynamixel port in use follows _"/dev/ttyUSB0"_
+* Left dynamixel gripper servo should be labeled as ID 1, and right dynamixel gripper servo labeled as ID 2

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-An end effector is the device at the end of a robotic arm, designed to interact with the environment. To provide for a low cost gripper solution for the underlying project, 2 [dynamixel motors](https://www.trossenrobotics.com/shared/images/PImages/R-903-0188-000-c.jpg) with claws affixed are attached alongside each other. This library (**built & tested with kinetic**) provides an easy-to-use ROS package to control the grip.
+An end effector is the device at the end of a robotic arm, designed to interact with the environment. To provide for a low cost gripper solution for the underlying project, 2 [dynamixel motors](https://www.trossenrobotics.com/shared/images/PImages/R-903-0188-000-c.jpg) with claws affixed are attached alongside each other. This library (**built & tested with ROS kinetic, Ubuntu 16.04**) provides an easy-to-use ROS package to control the grip.
 
 ## Getting started
 
@@ -39,3 +39,4 @@ roslaunch dynamixel_gripper gripper_manager.roslaunch
 ## Important points
 * Gripper may get hot after prolonged use. Keep track and ensure its **temperature does not exceed 65 degrees celsius**. To track temperature, check published topic **/gripper/state**
 * Certain parameters can be adjusted in 'tilt.yaml' & 'gripper_manager.launch' files, such as _port number, servo id search range, baudrate, joint velocity, open & close angles_
+* Ensure the dynamixel port in use follows _"/dev/ttyUSB0"_
